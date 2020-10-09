@@ -31,6 +31,7 @@
 	background-color: #e3e3e3;
 }
 
+/* [START] switch */
 .switch {
 	--height: 20px;
 
@@ -69,6 +70,7 @@
 	width: var(--width);
 	border-radius: var(--width);
 }
+/* [END] switch */
 
 .settings-menu-toggleable {
 	display: flex;
