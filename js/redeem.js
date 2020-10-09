@@ -224,16 +224,12 @@ function connectPoints() {
 	}, 2000);
 }
 
-// function to add event listener to element to detect DOM insertions
+// function to add mutation observer to points element to detect DOM changes
 // also append indicator to show plugin is watching channel points
 let points_observer = null;
 function main() {
-	// add event listener
+	// add points mutation observer
 	try {
-		// document
-		// 	.querySelector(".community-points-summary")
-		// 	.children[1].addEventListener("DOMNodeInserted", listenerEvent, false);
-
 		let points_target = document.querySelector(".community-points-summary")
 			.children[1];
 		const points_config = { childList: true, subtree: true };
@@ -252,11 +248,43 @@ function main() {
 				console.log(debug_list);
 			}
 		});
+
+		// append indicator if setting is on
+		chrome.storage.sync.get(["indicator"], (result) => {
+			if (result.indicator) {
+				let target = document.querySelector(".community-points-summary")
+					.children[0];
+				if (target.childNodes[target.childNodes.length - 1].tagName != "svg") {
+					let indicator = createElementFromHTML(INDICATOR_SVG);
+
+					let style = document.createElement("style");
+					style.innerHTML = INDICATOR_KEYFRAMES;
+					document.getElementsByTagName("head")[0].appendChild(style);
+					indicator.style.animation = "blip 2.5s ease alternate infinite";
+
+					target.appendChild(indicator);
+					log("ADDED INDICATOR");
+
+					chrome.storage.sync.get(["debug"], (result) => {
+						if (result.debug) {
+							indicator.addEventListener("click", function () {
+								let data = {
+									debug_list,
+								};
+
+								debug_list = [];
+								download("debug.json", JSON.stringify(data));
+							});
+						}
+					});
+				}
+			}
+		});
 	} catch (err) {
 		chrome.storage.sync.get(["debug"], (result) => {
 			if (result.debug) {
 				let data = {
-					title: "error",
+					title: "error adding mutation observer",
 					date: new Date(),
 					content: err,
 				};
@@ -265,38 +293,6 @@ function main() {
 			}
 		});
 	}
-
-	// append indicator if setting is on
-	chrome.storage.sync.get(["indicator"], (result) => {
-		if (result.indicator) {
-			let target = document.querySelector(".community-points-summary")
-				.children[0];
-			if (target.childNodes[target.childNodes.length - 1].tagName != "svg") {
-				let indicator = createElementFromHTML(INDICATOR_SVG);
-
-				let style = document.createElement("style");
-				style.innerHTML = INDICATOR_KEYFRAMES;
-				document.getElementsByTagName("head")[0].appendChild(style);
-				indicator.style.animation = "blip 2.5s ease alternate infinite";
-
-				target.appendChild(indicator);
-				log("ADDED INDICATOR");
-
-				chrome.storage.sync.get(["debug"], (result) => {
-					if (result.debug) {
-						indicator.addEventListener("click", function () {
-							let data = {
-								debug_list,
-							};
-
-							debug_list = [];
-							download("debug.json", JSON.stringify(data));
-						});
-					}
-				});
-			}
-		}
-	});
 }
 
 // first and only function called in gloabal scope
