@@ -16,6 +16,31 @@
 		/>
 	</head>
 	<body>
+		<!-- [START] update message container -->
+		<div class="update-message-container" id="update-message-container">
+			<div class="update-message-card">
+				<div class="update-message-card-close" id="update-message-card-close">
+					<img src="static/closesvg.svg" width="10px" />
+				</div>
+				<div class="update-message-card-title">
+					<p class="cursor" id="update-message-card-title">
+						Updates<span class="cursor-end">_</span>
+					</p>
+				</div>
+				<div class="update-message-card-content">
+					<p class="update-message-card-content-title">
+						WHAT'S NEW: <span>v1.3</span>
+					</p>
+					<p><span class="added">+</span> added this thing</p>
+					<p><span class="removed">-</span> but i also removed this thing</p>
+					<p>
+						<span class="changed">*</span> though, i only changed this thing
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- [END] update message container -->
+
 		<!-- [START] settings menu -->
 		<div class="settings-menu-container" id="settings-menu-container">
 			<div class="settings-menu-close" id="settings-menu-close">x</div>
@@ -69,10 +94,10 @@
 		<!-- title -->
 		<div class="title">
 			<p id="title" class="cursor">
-				Twitch Auto-Redeem Channel Points
-				<span class="cursor-end">_</span>
+				Twitch Auto-Redeem Channel Points<span class="cursor-end">_</span>
 			</p>
 		</div>
+
 		<!-- [START] rewards card -->
 		<div class="rewards-card">
 			<div class="card-title">
@@ -93,6 +118,7 @@
 			</div>
 		</div>
 		<!-- [END] rewards card -->
+
 		<div class="message-container">
 			<div class="message-text-container">
 				<span class="message-text">Are you sure?</span>
@@ -108,4 +134,5 @@
 	<script src="js/clickCounter.js"></script>
 	<script src="js/reset.js"></script>
 	<script src="js/settings.js"></script>
+	<script src="js/updateMessage.js"></script>
 </html>

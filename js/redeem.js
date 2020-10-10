@@ -114,6 +114,7 @@ function reward() {
 
 // the main part of the script -- detects and clicks channel points
 function listenerEvent() {
+	log("EVENT!");
 	chrome.storage.sync.get(["debug"], (result) => {
 		if (result.debug) {
 			let data = {
