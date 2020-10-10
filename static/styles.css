@@ -36,6 +36,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	position: relative;
+	z-index: 4;
 }
 
 .update-message-card-close {
@@ -71,14 +72,29 @@ body {
 
 .update-message-card-content span.added {
 	color: green;
+	font-size: 13px;
+}
+
+.update-message-card-content span.added::before {
+	content: "+";
 }
 
 .update-message-card-content span.removed {
 	color: red;
+	font-size: 13px;
+}
+
+.update-message-card-content span.removed::before {
+	content: "-";
 }
 
 .update-message-card-content span.changed {
 	color: grey;
+	font-size: 13px;
+}
+
+.update-message-card-content span.changed::before {
+	content: "•";
 }
 
 .update-message-card-content p {
@@ -120,6 +136,9 @@ body {
 	background-color: #fff;
 	z-index: 2;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .settings-container {

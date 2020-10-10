@@ -18,7 +18,7 @@
 	<body>
 		<!-- [START] update message container -->
 		<div class="update-message-container" id="update-message-container">
-			<div class="update-message-card">
+			<div class="update-message-card" id="update-message-card">
 				<div class="update-message-card-close" id="update-message-card-close">
 					<img src="static/closesvg.svg" width="10px" />
 				</div>
@@ -31,10 +31,17 @@
 					<p class="update-message-card-content-title">
 						WHAT'S NEW: <span>v1.3</span>
 					</p>
-					<p><span class="added">+</span> added this thing</p>
-					<p><span class="removed">-</span> but i also removed this thing</p>
 					<p>
-						<span class="changed">*</span> though, i only changed this thing
+						<span class="added"></span> added these updates messages!
+						(toggleable in settings)
+					</p>
+					<p>
+						<span class="added"></span> added button in settings to show latest
+						change log
+					</p>
+					<p>
+						<span class="added"></span> added active indicator on channel points
+						for visual confirmation of extension! (toggleable in settings)
 					</p>
 				</div>
 			</div>
@@ -65,6 +72,18 @@
 					</div>
 					<p>Debug mode (refresh page to update)</p>
 				</div>
+				<!-- update messages -->
+				<div class="toggle-updateMessages-container settings-menu-toggleable">
+					<div class="switch" id="toggle-updateMessages">
+						<div class="spacer"></div>
+						<div class="slider"></div>
+					</div>
+					<p>Recieve update message</p>
+				</div>
+				<!-- show last update message -->
+				<button class="settings-menu-button" id="show-changeLog">
+					Change Log
+				</button>
 			</div>
 			<!-- [END] menu content -->
 		</div>

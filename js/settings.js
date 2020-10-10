@@ -31,6 +31,12 @@ menu()
 		document.getElementById("settings-menu-container").style.height = "0";
 	});
 
+menu()
+	.querySelector("#show-changeLog")
+	.addEventListener("click", function () {
+		document.getElementById("update-message-container").style.height = "100vh";
+	});
+
 // set all switches' widths equal to their heights -- add event on click to toggle switch
 let switches = document.getElementsByClassName("switch");
 for (let item of switches) {
@@ -59,7 +65,7 @@ for (let item of switches) {
 }
 
 // set switch positions from storage
-chrome.storage.sync.get(["indicator", "debug"], (result) => {
+chrome.storage.sync.get(["indicator", "debug", "updateMessages"], (result) => {
 	if (result.indicator) {
 		document.getElementById("toggle-indicator").classList.add("on");
 		document
@@ -78,5 +84,15 @@ chrome.storage.sync.get(["indicator", "debug"], (result) => {
 			.classList.add("on");
 
 		console.log("debug on");
+	}
+
+	if (result.updateMessages) {
+		document.getElementById("toggle-updateMessages").classList.add("on");
+		document
+			.getElementById("toggle-updateMessages")
+			.querySelector(".spacer")
+			.classList.add("on");
+
+		console.log("update messages on");
 	}
 });
