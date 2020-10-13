@@ -203,8 +203,8 @@ function connectPoints() {
 			clearInterval(interval);
 			main();
 		} catch {
-			// after 10 attempts (≈20s) stop trying to mount
-			if (counter >= 10) {
+			// after 30 attempts (≈60s) stop trying to mount
+			if (counter >= 30) {
 				clearInterval(interval);
 				log("POINTS CONNECTION TIMEOUT");
 				chrome.storage.sync.get(["debug"], (result) => {
