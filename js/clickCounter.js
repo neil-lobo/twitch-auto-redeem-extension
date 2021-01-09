@@ -2,7 +2,7 @@ let interval = null;
 let lastClick = null;
 
 const MILLIS_DELTA = 5000;
-const COUNTER_MAX = 10000;
+const COUNTER_MAX = 5000;
 
 let counter = 0;
 
@@ -30,23 +30,39 @@ document.querySelector("button.img").addEventListener("click", function () {
 			}
 		}, 250);
 		// different counter checkpoints change button icon
-	} else if (counter == 30) {
-		document.querySelector("button.img").innerHTML =
-			"<span style='font-weight:bolder'>x.x</span>";
+	} else if (counter == 10) {
+		let img = document.createElement("img");
+		img.src =
+			"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/residentSleeper.png";
+		img.style.height = "70%";
+
+		document.querySelector("button.img").innerHTML = img.outerHTML;
 		document.querySelector("button.img").style["background-color"] = "#b01515";
-	} else if (counter == 60) {
-		document.querySelector("button.img").innerHTML =
-			"<span style='font-weight:bolder'>O.O</span>";
+	} else if (counter == 40) {
+		let img = document.createElement("img");
+		img.src =
+			"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/monkaS.png";
+		img.style.height = "70%";
+
+		document.querySelector("button.img").innerHTML = img.outerHTML;
 		document.querySelector("button.img").style["background-color"] = "#9949ad";
-	} else if (counter == 100) {
-		document.querySelector("button.img").innerHTML =
-			"<span style='font-weight:bolder'>^o^</span>";
+	} else if (counter == 80) {
+		let img = document.createElement("img");
+		img.src =
+			"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/eleGiggle.png";
+		img.style.height = "70%";
+
+		document.querySelector("button.img").innerHTML = img.outerHTML;
 		document.querySelector("button.img").style["background-color"] = "#13d460";
-	} else if (counter == 200) {
-		document.querySelector("button.img").innerHTML =
-			"<span style='font-weight:bolder'>-.-</span>";
+	} else if (counter == 150) {
+		let img = document.createElement("img");
+		img.src =
+			"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/pauseChamp.png";
+		img.style.height = "70%";
+
+		document.querySelector("button.img").innerHTML = img.outerHTML;
 		document.querySelector("button.img").style["background-color"] = "#4d4ba3";
-	} else if (counter == 500) {
+	} else if (counter == 300) {
 		document.querySelector("button.img").innerHTML =
 			"<span style='font-weight:bolder'>🤩</span>";
 		document.querySelector("button.img").style["background-color"] = "#deeb59";
