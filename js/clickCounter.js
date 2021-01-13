@@ -6,6 +6,22 @@ const COUNTER_MAX = 5000;
 
 let counter = 0;
 
+const residentSleeper = new Image();
+residentSleeper.src =
+	"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/residentSleeper.png";
+
+const monkaS = new Image();
+monkaS.src =
+	"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/monkaS.png";
+
+const eleGiggle = new Image();
+eleGiggle.src =
+	"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/eleGiggle.png";
+
+const pauseChamp = new Image();
+pauseChamp.src =
+	"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/pauseChamp.png";
+
 // whole script is this one function
 // adds event listener to the fidget rewards button in GUI
 document.querySelector("button.img").addEventListener("click", function () {
@@ -31,33 +47,25 @@ document.querySelector("button.img").addEventListener("click", function () {
 		}, 250);
 		// different counter checkpoints change button icon
 	} else if (counter == 10) {
-		let img = document.createElement("img");
-		img.src =
-			"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/residentSleeper.png";
+		let img = residentSleeper;
 		img.style.height = "70%";
 
 		document.querySelector("button.img").innerHTML = img.outerHTML;
 		document.querySelector("button.img").style["background-color"] = "#b01515";
 	} else if (counter == 40) {
-		let img = document.createElement("img");
-		img.src =
-			"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/monkaS.png";
+		let img = monkaS;
 		img.style.height = "70%";
 
 		document.querySelector("button.img").innerHTML = img.outerHTML;
 		document.querySelector("button.img").style["background-color"] = "#9949ad";
 	} else if (counter == 80) {
-		let img = document.createElement("img");
-		img.src =
-			"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/eleGiggle.png";
+		let img = eleGiggle;
 		img.style.height = "70%";
 
 		document.querySelector("button.img").innerHTML = img.outerHTML;
 		document.querySelector("button.img").style["background-color"] = "#13d460";
 	} else if (counter == 150) {
-		let img = document.createElement("img");
-		img.src =
-			"https://neil-lobo.github.io/twitch-auto-redeem-extension-images/images/default-emotes/pauseChamp.png";
+		let img = pauseChamp;
 		img.style.height = "70%";
 
 		document.querySelector("button.img").innerHTML = img.outerHTML;
