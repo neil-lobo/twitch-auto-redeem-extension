@@ -1,6 +1,6 @@
 {
 	"name": "Twitch Auto-Redeem Channel Points",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "Auto-redeems Twitch channel points rewards for you!",
 	"manifest_version": 2,
 	"permissions": ["storage"],
